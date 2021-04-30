@@ -1,0 +1,151 @@
+<html>
+<head>
+ <meta name="description" content="Web Share API demo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<title>
+    Web Share API
+</title>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        background-image: linear-gradient(#4beede,#009688)
+    }
+    .wrapper{
+        width: 800px;
+        margin: 0 auto;
+        height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .container{
+        width: 350px;
+        height: 350px;
+        margin: 5px;
+        box-shadow: 3px 4px 5px 7px rgba(0,0,0,0.1);
+        background-color: #eceeee;
+        margin-bottom: 50px;
+    }
+    .container .inner{
+        position: relative;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .inner h4{
+        text-align: center;
+        font-weight: 800;
+        font-size: 18px;
+    }
+    .inner div{
+        margin-bottom: 10px;
+    }
+    input, button{
+        display:block;
+        border-radius: 30px;
+        height: 45px;
+        border: none;
+        outline: none;
+        padding: 0 20px 0 20px;
+        font-size: 16px;
+        width: 100%;
+    }
+    button{
+        margin-top: 25px;
+        background-image: linear-gradient(#4beede,#009688);
+        cursor: pointer;
+        color: white;
+    }
+    .error{
+        color: red;
+        text-align: center;
+    }
+    h1{
+        margin-top: 60px;
+        text-align: center;
+        color: beige;
+    }
+    h1 .love{
+        color: red;
+        font-size: 50px;
+    }
+    h1 .author{
+        text-transform: uppercase;
+        text-decoration: none;
+        color: rgb(192, 113, 22);
+
+    }
+    @media screen and (max-width: 500px){
+        body{
+            max-width: 100% !important
+        }
+        .wrapper{
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 2px;
+        }
+        .container{
+            width: 100%;
+            margin: 0px;
+
+        }
+    }
+    
+</style>
+
+<body>
+    <h1>Web LINK and FILE share API</h1>
+    <h1>Designed & developed with <span class="love">&hearts;</span> by <a href="https://supakonnect.com" class="author">Peter Kelvin Torver</a> </h1>
+    <div class="wrapper">
+    <div class="container">
+        <div class="inner">
+            <h4>Share Link</h4>
+            <form>
+                <div class="top">
+                    <input type="text" placeholder="Enter title you wanna share" id="title" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Enter the text you want to share here" id="text" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Enter the URL" id="url" />
+                </div>
+                <p id="message" class="error"></p>
+                <div>
+                    <button id="shareButton">Share</button>
+                    <!-- <button onclick="shareFiles" id="shareFilesButton">Share Files</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="inner">
+            <h4>Share File</h4>
+            <form enctype="multipart/form-data">
+                <div class="top">
+                    <input type="text" placeholder="Enter title you wanna share" id="title1" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Enter the text you want to share here" id="text1" />
+                </div>
+                <div>
+                    <input type="file" id="file" />
+                </div>
+                <p id="message1" class="error"></p>
+                <div>
+                    <button id="shareFilesButton">Share File</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+</body>
+<script src="./index.js"></script>
+
+</html>
