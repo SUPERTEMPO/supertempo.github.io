@@ -29,7 +29,7 @@ shareFilesButton.addEventListener("click", (e) => shareFiles(e))
 const file = document.getElementById("file")
 const files = []
 file.addEventListener('change',e =>{
-    files.push(e.target.files)
+    files.push(e.target.files[0])
 })
 async function shareFiles(e) {
     e.preventDefault()
@@ -45,17 +45,16 @@ async function shareFiles(e) {
     }
     if(isError) return 
     console.log(files)
-    if (navigator.canShare && navigator.canShare({
-            files: files[0]
-        })) {
+    if (navigator.canShare && navigator.canShare({files: files})) {
         try {
             await navigator.share({
                 title: title.value,
                 text: text.value,
-                file: files[0],
+                files: files,
             })
             return message1.innerText = 'File Shared Successfully'
         } catch (error) {
+            console.log(error)
             return message1.innerText = 'Error sharing'
         }
     }
